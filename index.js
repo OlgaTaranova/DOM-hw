@@ -1,3 +1,5 @@
+'use strict';
+
 //-------------------JSON  Task 1-----------------------
 
 
@@ -119,24 +121,67 @@
 
 //-------------------DOM  Task 4-----------------------
 
-let ul = document.createElement('ul');
-let arr = [];
-createLi();
+// let ul = document.createElement('ul');
+// let arr = [];
+// createLi();
 
 
-function createLi() {
-  let num = prompt('Enter a number');
-  if (typeof num === 'object' || isNaN(num) === true || num === '') {
-    document.body.append(ul);
-  } else {    
-    let sum = arr.reduce((sum, current) => sum + current, 0);
-    let inner = sum + +num;
-    arr.push(inner);
-    let li = document.createElement('li');
-    li.innerHTML = inner;
-    ul.append(li);
-    createLi();
-  }
+// function createLi() {
+//   let num = prompt('Enter a number');
+//   if (typeof num === 'object' || isNaN(num) === true || num === '') {
+//     document.body.append(ul);
+//   } else {    
+//     let sum = arr.reduce((sum, current) => sum + current, 0);
+//     let inner = sum + +num;
+//     arr.push(inner);
+//     let li = document.createElement('li');
+//     li.innerHTML = inner;
+//     ul.append(li);
+//     createLi();
+//   }
   
-}
+// }
 
+
+
+//-------------------isEqual-----------------------
+
+
+function isEqual(obj1, obj2) {
+  if (typeof obj1 !== 'object' && typeof obj2 !== 'object') {
+    return 'Both parameters are not Objects';
+  } else if (typeof obj1 !== 'object') {
+    return 'The first parameter is not an Object';
+  } else if (typeof obj2 !== 'object') {
+    return 'The second parameter is not an Object';
+  }
+
+  if (obj1 == obj2) return false;
+  if (JSON.stringify(obj1) === JSON.stringify(obj2)) {
+    return true;
+  } else {
+    return false;
+  }
+  // for (let key in obj1) {
+  //   if (!obj2.hasOwnProperty(key)) {
+  //         return false;
+  //   } else {
+  //         if(obj1[key] !== obj2[key]) {
+  //           return false;
+  //         } 
+  //     }
+      
+  // }
+  // return true;
+} 
+let rama = {
+  1: '1',
+  2: '22'
+};
+let mama = {
+  1: '1',
+  2: '22'
+};
+
+
+console.log(isEqual(rama, mama));
